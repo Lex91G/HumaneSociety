@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="humanesocietyproject" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-JSNJ2J8;Initial Catalog=humanesocietyproject;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="ClassLibrary1.Properties.Settings" SettingsPropertyName="humanesocietyprojectConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Pass" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OtherAnimalsInHousehold" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Animals" Member="Animals">
+    <Type Name="Animal">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Animaltype" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="RoomKeptIn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AdoptionStatus" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Worth" Type="System.Decimal" DbType="Decimal(7,2)" CanBeNull="true" />
+      <Column Name="Shots" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Hunger" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Breed" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

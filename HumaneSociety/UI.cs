@@ -7,8 +7,9 @@ using ClassLibrary1;
 
 namespace HumaneSociety
 {
-    class UI
+   class UI
     {
+        Employee employee = new Employee();
         Animal newanimal = new Animal();
         public UI()
         {
@@ -16,7 +17,7 @@ namespace HumaneSociety
         }
         public void InsertInfo()
         {
-            Console.WriteLine("Welcome to the Alex's Human Society how may I help you? \n1 = Bring an animal in? \n2 = Search for an animal? \n");
+            Console.WriteLine("Welcome to the Alex's Human Society how may I help you? \n1 = Bring an animal in? \n2 = Search for an animal? \n3 = Search by ID? \n4 = Employee login");
             int WhatTheredoing = int.Parse(Console.ReadLine());
             switch (WhatTheredoing)
             {
@@ -28,7 +29,7 @@ namespace HumaneSociety
                     return;
 
                 case 3:
-
+                    SearchByID();
                     return;
 
                 default:
@@ -101,26 +102,73 @@ namespace HumaneSociety
         }
         public void Breed()
         {
-            Console.WriteLine("Does your animal have a breed, if so what bread is your animal?");
+            Console.WriteLine("Does your animal have a breed, if so what breed is your animal?");
             string getAnimalBreed = Console.ReadLine();
             newanimal.Breed = getAnimalBreed;
             DataClasses1DataContext context = new DataClasses1DataContext();
             context.Animals.InsertOnSubmit(newanimal);
             context.SubmitChanges();
+            InsertInfo();
             
         }
+
         public void FindAnAnimal()
         {
-            DataBaseAccessor.UpdateAnimal(newanimal);
-            DataBaseAccessor.AnimalRecords();
-            Console.WriteLine();
-           string IdNUmber = Console.ReadLine();
-            DataBaseAccessor.DeleteAnimal (IdNUmber);
-            
-            //var results = x context.animals where breed SELECT dataentry;
-        
+            UpdateAnimal();
+            var test = DataBaseAccessor.AnimalRecords();
+            foreach (var search in test)
+            {
+                Console.WriteLine("ID Number: " + search.ID + "\n" + "Animal Type: " + search.Animaltype +"\n" + "Name: " + search.Name + "\n" + "Gender: " + search.Gender + "\n" + "Room Number: " + search.RoomKeptIn + "\n" + "Adoption Status: " + search.AdoptionStatus + "\n" + "Price: " + search.Worth + "\n" + "Medical Shots: " + search.Shots + "\n" + "Hunger Level: " + search.Hunger + "\n" + "Age: " + search.Age + "\n" + "Breed: " + search.Breed);
+                Console.ReadLine();
+
+            }
+
+            InsertInfo();
+        }
+        public void SearchByID()
+        {
+            Console.WriteLine("Whats the animals ID number you would like to look up?");
+            int IDNumber = int.Parse(Console.ReadLine());
+            DataClasses1DataContext context = new DataClasses1DataContext();
+            foreach (var search in context.Animals)
+            {
+                if (search.ID == IDNumber)
+                {
+                    Console.WriteLine("Animal Type: " + search.Animaltype + "\n" + "Name: " + search.Name + "\n" + "Gender: " + search.Gender + "\n" + "Room Number: " + search.RoomKeptIn + "\n" + "Adoption Status: " +search.AdoptionStatus + "\n" + "Price: " + search.Worth + "\n" + "Medical Shots: " + search.Shots + "\n" + "Hunger Level: " + search.Hunger + "\n" + "Age: " + search.Age + "\n" + "Breed: " + search.Breed);
+                    Console.ReadLine();
+
+                }
+
+            }
 
         }
+
+        
+        public void UpdateAnimal()
+        {
+           if(newanimal.AdoptionStatus == "Not adopted yet")
+            {
+                string newAdopted = "Adopted";
+                newanimal.AdoptionStatus = newAdopted;
+                DataClasses1DataContext context = new DataClasses1DataContext();
+                context.Animals.InsertOnSubmit(newanimal);
+                context.SubmitChanges();
+                
+            }
+            
+        }
+              
+            
+            
+                
+            
+           
+        //    DataBaseAccessor.UpdateAnimal(newanimal);
+            
+        //    //var results = x context.animals where breed SELECT dataentry;
+        
+
+        //}
 
         }
     }

@@ -15,6 +15,7 @@ namespace HumaneSociety
 
             DataClasses1DataContext context = new DataClasses1DataContext();
             var result = from r in context.Animals select r;
+            
             return result.ToList();
 
         }
@@ -65,17 +66,7 @@ namespace HumaneSociety
                 return false;
             }
         }
-        public static bool UpdateAnimals2(Animal animal)
-        {
-            DataClasses1DataContext context = new DataClasses1DataContext();
-            Console.WriteLine("which animal would you like to update");
-            public int updateanswer = int.Parse(Console.ReadLine());
-
-            if(animal.Age = updateanswer){
-
-            }
-            return true;
-        }
+        
         public static bool UpdateAnimal(Animal animal)
         {
             try
@@ -94,7 +85,7 @@ namespace HumaneSociety
                 res.Worth = animal.Worth;
                 res.Shots = animal.Shots;
                 context.SubmitChanges();
-                return true;
+                return false;
             }
               catch
             {

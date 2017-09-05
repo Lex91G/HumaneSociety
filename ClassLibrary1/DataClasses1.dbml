@@ -12,13 +12,6 @@
       <Column Name="OtherAnimalsInHousehold" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Employees" Member="Employees">
-    <Type Name="Employee">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Animals" Member="Animals">
     <Type Name="Animal">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -32,6 +25,13 @@
       <Column Name="Hunger" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Breed" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employees" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

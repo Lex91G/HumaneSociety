@@ -12,10 +12,11 @@ namespace HumaneSociety
     {
         public static List<Animal> AnimalRecords()
         {
-           
+
             DataClasses1DataContext context = new DataClasses1DataContext();
             var result = from r in context.Animals select r;
             return result.ToList();
+
         }
         public static Animal Getfile(string AnimalType)
         {
@@ -64,6 +65,17 @@ namespace HumaneSociety
                 return false;
             }
         }
+        public static bool UpdateAnimals2(Animal animal)
+        {
+            DataClasses1DataContext context = new DataClasses1DataContext();
+            Console.WriteLine("which animal would you like to update");
+            public int updateanswer = int.Parse(Console.ReadLine());
+
+            if(animal.Age = updateanswer){
+
+            }
+            return true;
+        }
         public static bool UpdateAnimal(Animal animal)
         {
             try
@@ -84,7 +96,7 @@ namespace HumaneSociety
                 context.SubmitChanges();
                 return true;
             }
-            catch
+              catch
             {
                 return false;
             }

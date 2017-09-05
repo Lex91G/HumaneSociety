@@ -111,10 +111,14 @@ namespace HumaneSociety
         }
         public void FindAnAnimal()
         {
+            DataBaseAccessor.UpdateAnimal(newanimal);
             DataBaseAccessor.AnimalRecords();
-            DataBaseAccessor.Getfile();
+            Console.WriteLine();
+           string IdNUmber = Console.ReadLine();
+            DataBaseAccessor.DeleteAnimal (IdNUmber);
+            
             //var results = x context.animals where breed SELECT dataentry;
-            Console.ReadLine();
+        
 
         }
 

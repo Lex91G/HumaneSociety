@@ -31,6 +31,10 @@ namespace HumaneSociety
                 case 3:
                     SearchByID();
                     return;
+                case 4:
+                    EmployeeClass employeeClass = new EmployeeClass();
+                    employeeClass.Login();
+                    return;
 
                 default:
                     Console.WriteLine("Invalid response please try again");

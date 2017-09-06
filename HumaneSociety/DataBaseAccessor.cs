@@ -10,6 +10,13 @@ namespace HumaneSociety
 {
     class DataBaseAccessor
     {
+        public static List<Employee> EmployeeRecords()
+        {
+            DataClasses1DataContext context = new DataClasses1DataContext();
+            var result = from r in context.Employees select r;
+
+            return result.ToList();
+        }
         public static List<Animal> AnimalRecords()
         {
 
@@ -28,20 +35,7 @@ namespace HumaneSociety
             Console.WriteLine(Animaltype);
             return Animaltype;
         }
-        public static bool AddAnimal(Animal animal)
-        {
-            try
-            {
-                DataClasses1DataContext context = new DataClasses1DataContext();
-                context.Animals.InsertOnSubmit(animal);
-                context.SubmitChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        
         public static bool DeleteAnimal(string ID)
         {
             try
@@ -92,20 +86,7 @@ namespace HumaneSociety
                 return false;
             }
         }
-        public static bool AddNewAnimal(List<Animal> newAnimal)
-        {
-            try
-            {
-                DataClasses1DataContext context = new DataClasses1DataContext();
-                context.Animals.InsertAllOnSubmit(newAnimal);
-                context.SubmitChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        
         public static bool DeleteAnimalEntirely(List<Animal> deleteAnimal)
         {
             try

@@ -8,15 +8,19 @@ using ClassLibrary1;
 namespace HumaneSociety
 {
 
-    static class EmployeeClass
+     class EmployeeClass
     {
-
-        static void Login()
+        Employee employee = new Employee();
+            public EmployeeClass()
+        {
+                
+        }
+        public void Login()
         {
             Console.WriteLine("What is your employee login number?");
             int GetNumber = int.Parse(Console.ReadLine());
             DataBaseAccessor context = new DataBaseAccessor();
-            foreach (var search in context.Employees)
+            foreach (var search in context.Employee)
             {
                 if (search.ID == GetNumber)
                 {
@@ -32,8 +36,9 @@ namespace HumaneSociety
                     Login();
              return;
                 case 2:
-
-                   return:
+                    UI ui = new HumaneSociety.UI();
+                    ui.InsertInfo();
+                    return;
         }
         }
         static void MainMenu()
